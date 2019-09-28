@@ -1,0 +1,84 @@
+<form class="form-horizontal" method="post">
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label >Üst Kategori</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="col-sm-5">
+                    <select name="category[parentid]"class="form-control">
+                        {% if category.parentid!=0 %}
+                        <option value="{{ category.parentid }}">{{ catname.title }}</option>
+                        {% else %}
+                          <option value="0">Ana Kategori</option>
+                        {% endif %}
+                        <option value="0">Ana Kategori</option>
+                        {% for cat in catlist %}
+                        <option value="{{ cat.id }}">{{ cat.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label >Title</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="category[title]" value="{{ category.title }}"  class="form-control" placeholder="Title">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label >Keywords(Anahtar Kelimeler)</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="category[keywords]" value="{{ category.keywords }}" id="password_2" class="form-control" placeholder="Anahtar Kelimeler">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label >Description(Kısa Açıklama)</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="category[description]" value="{{ category.description }}" id="password_2" class="form-control" placeholder="Kısa Açıklama">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <label  class="col-sm-2 control-label">Aktif Durumu</label>
+        <div class="col-sm-5">
+            <select name="category[status]"class="form-control">
+                <option>{{ category.status }}</option>
+                <option>True</option>
+                <option selected>False</option>
+            </select>
+        </div>
+    </div>
+    <tr class="row clearfix">
+        <td class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+            <button type="submit" class="btn btn-primary m-t-15 waves-effect">KAYDET</button>
+
+        </td>
+        <td class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+
+            <button type="submit" class="btn btn-default">Cancel</button>
+    </tr>
+    </div>
+</form>

@@ -1,0 +1,150 @@
+<form class="form-modal" method="post">
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Kategorisi</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="col-sm-5">
+                    <select name="product[categoryid]" class="form-control">
+                        {% if catname %}
+                            <option value="{{ product.categoryid }}">{{ catname[0].title }}</option>
+                        {% endif %}
+                        {% for cat in catlist %}
+                            <option value="{{ cat.id }}">{{ cat.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix" style="margin-top: 25px;">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Title</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="product[title]" value="{{ product.title }}" class="form-control"
+                           placeholder="Title">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Keywords(Anahtar Kelimeler)</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="product[keywords]" value="{{ product.keywords }}" id="password_2"
+                           class="form-control" placeholder="Anahtar Kelimeler">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Description(Kısa Açıklama)</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="product[description]" value="{{ product.description }}" id="password_2"
+                           class="form-control" placeholder="Kısa Açıklama">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Alış Fiyatı</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="product[pprice]" value="{{ product.pprice }}" id="password_2"
+                           class="form-control" placeholder="Kısa Açıklama">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Satış Fiyatı</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="product[sprice]" value="{{ product.sprice }}" id="password_2"
+                           class="form-control" placeholder="Kısa Açıklama">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Miktar</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" name="product[amount]" value="{{ product.amount }}" id="password_2"
+                           class="form-control" placeholder="Kısa Açıklama">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <label class="col-sm-2 control-label">Aktif Durumu</label>
+        <div class="col-sm-5">
+            <select name="product[status]" class="form-control">
+                <option>{{ product.status }}</option>
+                <option>True</option>
+                <option selected>False</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Detay</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+                <div class="form-line">
+                        <textarea id="detail" name="product[detail]" rows="10"
+                                  cols="100"> {{ product.detail }}</textarea>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <tr class="row clearfix">
+        <td class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+            <button type="submit" class="btn btn-primary m-t-15 waves-effect">KAYDET</button>
+
+        </td>
+        <td class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+
+            <button type="submit" class="btn btn-default">Cancel</button>
+    </tr>
+    </div>
+</form>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>

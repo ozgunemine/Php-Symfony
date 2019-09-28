@@ -1,0 +1,44 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}{{ data[0].title }}{% endblock %}
+{% block keywords %}{{ data[0].keywords }}{% endblock %}
+{% block description %}{{ data[0].description }}{% endblock %}
+{% block sidebar %}{{ include ('home/_sidebar.html.twig') }}{% endblock %}
+
+{% block content %}
+    <hr class="softan">
+    <div>
+        <h1>{{ data[0].title }}</h1>
+    </div>
+    <hr class="softan">
+    <div class="row">
+        <div class="features_items"><!--features_items-->
+            <h2 class="title text-center">Products</h2>
+            {% for rs in products %}
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="{{ asset ('uploads') }}/images/{{ rs.image }}" alt="">
+                                <h2>{{ rs.sprice }}</h2>
+                                <p>{{ rs.title }}</p>
+                                <a href="{{ path('product_detail',{'id':rs.id}) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>INCELE</a>
+                            </div>
+                            <div class="product-overlay">
+                                <div class="overlay-content">
+                                    <p>{{ rs.title }}</p>
+                                    <h2>{{ rs.sprice }}</h2>
+                                    <p>{{ rs.title }}</p>
+                                    <a href="{{ path('product_detail',{'id':rs.id}) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>INCELE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Sepet{% endblock %}
+
+{% block sidebar %} {%    include ('home/_usersidebar.html.twig') %} {% endblock %}
+{% block content %}
+
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Home</a><span class="divider"></span> </li>
+        <li><a href="">Shopcart Items</a><span class="divider"></span> </li>
+        <li class="active">Preview</li>
+    </ul>
+    <div class="well well-sm">
+        <div class="row-fluid">
+
+            <h5>Order Items</h5>
+            {{ include ('orders/_form.html.twig') }}
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{{ include ('admin/messages.html.twig') }}
+
+<div class="col-xl-12 stretch-card">
+    <div class="card-body">
+        <form action="{{ path('admin_setting_edit', {'id':1}) }}" class="forms-sample" method="post">
+            <h4 class="menu-title"> <b>Genel Bilgiler</b> </h4><br>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Adı</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[title]" value="{{ setting.title }}" class="form-control"
+                           placeholder="Title">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Keywords (Anahtar Kelimeler)</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[keywords]" value="{{ setting.keywords }}" class="form-control"
+                           placeholder="Keywords">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Description (Kısa Açıklama)</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[description]" value="{{ setting.description }}"
+                           class="form-control" placeholder="Description">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Firma Adı</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[company]" value="{{ setting.company }}"
+                           class="form-control" placeholder="Firma Adı">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Adres</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[address]" value="{{ setting.getAddress() }}"
+                           class="form-control" placeholder="Adres">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Fax</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[fax]" value="{{ setting.fax }}"
+                           class="form-control" placeholder="Fax">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Aktiflik Durumu</label>
+                <div class="col-sm-8">
+                    <select name="setting[status]" class="form-control">
+                        <option>{{ setting.status }}</option>
+                        <option>Enable</option>
+                        <option selected>Disable</option>
+
+                    </select>
+
+                </div>
+            </div>
+            <h4 class="menu-title"> <b>Email Server</b> </h4><br>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email Server</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[smtpserver]" value="{{ setting.smtpserver }}" class="form-control"
+                           placeholder="Email Server">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-8">
+                    <input type="email" name="setting[smtpemail]" value="{{ setting.smtpemail }}"
+                           class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email Şifre</label>
+                <div class="col-sm-8">
+                    <input type="password" name="setting[smtppassword]" value="{{ setting.smtppassword }}"
+                           class="form-control" placeholder="Email Şifre">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">SMTP Port</label>
+                <div class="col-sm-8">
+                    <input type="text" name="setting[smtpport]" value="{{ setting.smtpport }}"
+                           class="form-control" placeholder="SMTP Port">
+                </div>
+            </div>
+            <h4 class="menu-title"> <b>Hakkımızda Sayfası</b> </h4><br>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <textarea id="aboutus" name="setting[aboutus]" rows="20" cols="80">{{ setting.aboutus }}</textarea>
+                </div>
+            </div>
+            <h4 class="menu-title"> <b>İletişim Sayfası</b> </h4><br>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <textarea id="contact" name="setting[contact]" rows="5" cols="80">{{ setting.contact }}</textarea>
+                </div>
+            </div>
+            <h4 class="menu-title"> <b>Referanslar Sayfası</b> </h4><br>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <textarea id="referances" name="setting[referances]" rows="5" cols="80">{{ setting.referances }}</textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+           {#<button class="btn btn-light">İptal</button>#}
+        </form>
+
+    </div>
+
+</div>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#detail' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#aboutus' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#contact' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#referances' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

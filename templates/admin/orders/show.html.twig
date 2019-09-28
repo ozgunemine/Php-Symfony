@@ -1,0 +1,113 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Sipariş Detayı{% endblock %}
+{% block content %}
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>Sipariş Detayı</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ order.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Userid</th>
+                            <td>{{ order.userid }}</td>
+                        </tr>
+                        <tr>
+                            <th>Amount</th>
+                            <td>{{ order.amount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ order.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adress</th>
+                            <td>{{ order.address }}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{ order.city }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>{{ order.phone }}</td>
+                        </tr>
+                        <form action="{{ path('admin_orders_update',{'id': order.id}) }}" method="post">
+
+
+                            <tr>
+                                <th>Shipinfo</th>
+                                <td><textarea name="shipinfo" cols="100" rows="3"> {{ order.shipinfo }}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th>Note</th>
+                                <td><textarea name="note" cols="100" rows="3"> {{ order.note }}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td><select name="status">
+                                        <option>{{ order.status }}</option>
+                                        <option>Accepted</option>
+                                        <option>InShipping</option>
+                                        <option>Canceled</option>
+                                        <option>Completed</option>
+
+                                    </select>
+                                    <input type="submit" value="Güncelle">
+                                </td>
+                            </tr>
+
+                        </form>
+                        </tbody>
+                    </table>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Product Name</th>
+                            <th>Sale Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set total = 0 %}
+                        {% for rs in orderdetail %}
+                            <tr>
+                                <td>{{ rs.id }}</td>
+                                <td>{{ rs.name }}</td>
+                                <td>{{ rs.price }}</td>
+                                <td>{{ rs.quantity }}</td>
+                                <td>{{ rs.amount }}</td>
+                                <td>{{ rs.status }}</td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5"> Order Detail</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5"><b>Toplam Alışveriş Tutarı : {{ order.amount }} TL </b> <br>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Ayarları Düzenleme{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>Ayarları Düzenle</h2>
+                {{ include ('admin/messages.html.twig') }}
+
+                <div class="table-responsive">
+
+                    {{ include('admin/setting/_form.html.twig') }}
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
